@@ -16,23 +16,32 @@ void EXTI3_IRQHandler (void) {
 
 void EXTI4_IRQHandler (void) {
 	// A8, A11, A12, B8
+	// 3 : A11, 1 : A12 ; 2 : A11 ; 4 : B8 
 	
 	if(EXTI->PR & 1<<4) {
 		delayUs(50000); 
-		dc_trai[1] = 0;  
+		dc_trai[0] = 0x01; 
+		dc_trai[1] = 0;
+		dc_trai[2] = 0xFF;   
 		if( t == 0) 
-			GPIOA->ODR |= 1<<8;  
+			GPIOA->ODR |= 1<<11;  
 		if(t == 1) 
-			GPIOA->ODR |= 1<<11; 
-		if(t == 2) 
 			GPIOA->ODR |= 1<<12; 
+		if(t == 2) 
+			GPIOA->ODR |= 1<<8; 
 		if(t == 3) 
 			GPIOB->ODR |= 1<<8;
 		t++; 
-		t = t % 4;
+
 		delayUs(1000000);
 		EXTI->PR |= 1<<4;
-		dc_trai[1] = 30;
+		if(t <= 3)  {
+			dc_trai[0] = 0x01; 
+			dc_trai[1] = 6;
+			dc_trai[2] = 0xFF; 
+		}
+		delayUs(50000);
+		
 	}
 	
 }

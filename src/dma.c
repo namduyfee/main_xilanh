@@ -96,6 +96,7 @@ void initDMA1Channel2(volatile uint8_t* address_memory, volatile uint16_t* addre
 	DMA1_Channel2->CPAR = address_periph; 
 	// enable DMA1 channel 7
 	DMA1_Channel2->CCR |= 1; 
+	
 }
 
 
