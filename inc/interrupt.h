@@ -10,6 +10,10 @@
 #include "timer.h" 
 #include "servo.h"
 
+extern int t; 
+extern uint8_t dc_trai[3]; 
+extern uint8_t dc_phai[3]; 
+
  void EXTI3_IRQHandler (void); 
  
  void EXTI4_IRQHandler (void); 

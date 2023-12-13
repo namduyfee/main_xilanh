@@ -27,6 +27,22 @@ Project File Date:  12/13/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'D:\keilC\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
+src/config.c(2): warning: In file included from...
+./inc\config.h(14): warning: In file included from...
+./inc/dma.h(27): warning: no newline at end of file [-Wnewline-eof]
+#endif  
+        ^
+src/config.c(2): warning: In file included from...
+./inc\config.h(16): warning: In file included from...
+./inc/i2c.h(29): warning: no newline at end of file [-Wnewline-eof]
+#endif
+      ^
+src/config.c(31): warning: no newline at end of file [-Wnewline-eof]
+}
+ ^
+3 warnings generated.
+compiling config.c...
+compiling interrupt.c...
 main.c(2): warning: In file included from...
 ./inc\config.h(14): warning: In file included from...
 ./inc/dma.h(27): warning: no newline at end of file [-Wnewline-eof]
@@ -37,32 +53,26 @@ main.c(2): warning: In file included from...
 ./inc/i2c.h(29): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-main.c(4): warning: no previous extern declaration for non-static variable 'tx' [-Wmissing-variable-declarations]
-uint8_t tx = 'a'; 
-        ^
-main.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t tx = 'a'; 
-^
-main.c(6): warning: no previous extern declaration for non-static variable 'check' [-Wmissing-variable-declarations]
+main.c(12): warning: no previous extern declaration for non-static variable 'check' [-Wmissing-variable-declarations]
 int check = 0; 
     ^
-main.c(6): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+main.c(12): note: declare 'static' if the variable is not intended to be used outside of this translation unit
 int check = 0; 
 ^
-main.c(19): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(27): warning: 'return' will never be executed [-Wunreachable-code-return]
         return 0; 
                ^
-main.c(5): warning: no previous extern declaration for non-static variable 'rx' [-Wmissing-variable-declarations]
-uint8_t rx; 
+main.c(4): warning: no previous extern declaration for non-static variable 'tay_ps' [-Wmissing-variable-declarations]
+uint8_t tay_ps; 
         ^
-main.c(5): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-uint8_t rx; 
+main.c(4): note: declare 'static' if the variable is not intended to be used outside of this translation unit
+uint8_t tay_ps; 
 ^
-6 warnings generated.
+5 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=1468 RO-data=268 RW-data=4 ZI-data=1640  
-".\Objects\test.axf" - 0 Error(s), 6 Warning(s).
+Program Size: Code=1732 RO-data=268 RW-data=4 ZI-data=1640  
+".\Objects\test.axf" - 0 Error(s), 8 Warning(s).
 
 <h2>Software Packages used:</h2>
 

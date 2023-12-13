@@ -7,10 +7,9 @@ void config(void) {
 	configGPIOA(); 
 	configGPIOB(); 
 	configGPIOC(); 
-//	configAFIO();
-//	configNVIC(); 
-//	configEXTI(); 
-	
+	configAFIO();
+	configEXTI(); 
+	configNVIC(); 
 	
 	configTIM4();
 	
