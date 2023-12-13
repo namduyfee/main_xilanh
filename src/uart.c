@@ -12,6 +12,9 @@ void configUART1(void) {
 	// enable trans , recive
 	
 	USART1->CR3 |= 1<<6; 
+	
+	USART1->CR3 |= 1<<7;						// enable DMA trans
+	
 	USART1->CR1 = 0x200C; 
 	
 //	USART1->BRR = 0x1D4C; 				// 9600
@@ -24,6 +27,9 @@ void configUART2 (void) {
 	// 8 bit data, enable trans, receive, dma1_channel 6
 	
 	USART2->CR3 |= 1<<6; 
+	
+	USART2->CR3 |= 1<<7;						// enable DMA trans
+	
 	USART2->CR1 = 0x200C; 
 	
 //	USART2->BRR = 0xEA6;					// 9600
@@ -39,6 +45,9 @@ void configUART3(void) {
 	
 	// enable trans, receive, dma1_channel 3, 8 bit data
 	USART3->CR3 |= 1<<6; 
+	
+	USART3->CR3 |= 1<<7;						// enable DMA trans
+	
 	USART3->CR1 = 0x200C; 
 	
 //	USART3->BRR = 0xEA6;					// 9600

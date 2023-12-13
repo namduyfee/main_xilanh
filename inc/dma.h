@@ -11,7 +11,7 @@ void configDMA1(void);
 // U1 : channel 5_RX, 4_TX; 
 // U2 : 6_RX, 7_TX; 
 // U3 : 3_RX, 2_TX
-
+// mode = 0 : RX , mode = 1 : TX   
 
 void initDMA1Channel1(volatile uint16_t* address_memory, volatile uint8_t* address_periph, uint16_t size); 
 void initDMA1Channel5(volatile uint8_t* address_memory, volatile uint16_t* address_periph, uint16_t size);

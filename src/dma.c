@@ -24,14 +24,14 @@ void configDMA1(void) {
 	DMA1_Channel6->CCR = 0x10A0; // medium
 	// channel 3 : rx_usart3
 	DMA1_Channel3->CCR = 0x10A0; // medium
-
-	//	channel 2 : U3_Tx
-	DMA1_Channel2->CCR = 0x10B0; // medium
 	//	channel 4 : U1_TX
 	DMA1_Channel4->CCR = 0x10B0; // medium
 	//	channel 7 : U2_Tx	
 	DMA1_Channel7->CCR = 0x10B0; // medium
+	//	channel 2 : U3_Tx
+	DMA1_Channel2->CCR = 0x10B0; // medium
 	// enable dma cr1 |= 1<<1; 
+	
 }
 
 //void initDMA1Channel1(volatile uint16_t* address_memory, volatile uint16_t* address_periph, uint16_t size) {

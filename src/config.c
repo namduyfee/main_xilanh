@@ -20,7 +20,7 @@ void config(void) {
 	configUART2(); 
 	configUART3(); 
 	
-	configI2c(); 
+//	configI2c(); 
 	
 	
 //	configTIM3();
