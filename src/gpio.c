@@ -24,7 +24,9 @@ void configGPIOA(void) {
 	GPIOA->CRH &= 0; 
 	// ouput : 8, 11, 12
 	GPIOA->CRH |= 0x33003;
-	
+	GPIOA->ODR &= (~(1<<8)); 
+	GPIOA->ODR &= (~(1<<11));
+	GPIOA->ODR &= (~(1<<12));
 	// ouput alter : PA9_TX_U1
 	GPIOA->CRH |= 0xB0; 
 	// input PA10_RX_U1
