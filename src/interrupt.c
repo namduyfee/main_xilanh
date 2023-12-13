@@ -19,19 +19,20 @@ void EXTI4_IRQHandler (void) {
 	
 	if(EXTI->PR & 1<<4) {
 		delayUs(50000); 
-		dc_trai[1] = 0; 
-		t = ((t + 1) % 4); 
-		if( t == 1) 
-			GPIOA->ODR |= 1<<8; 
-		if(t == 2) 
+		dc_trai[1] = 0;  
+		if( t == 0) 
+			GPIOA->ODR |= 1<<8;  
+		if(t == 1) 
 			GPIOA->ODR |= 1<<11; 
-		if(t == 3) 
+		if(t == 2) 
 			GPIOA->ODR |= 1<<12; 
-		if(t == 4) 
+		if(t == 3) 
 			GPIOB->ODR |= 1<<8;
-		delayUs(500000);
+		t++; 
+		t = t % 4;
+		delayUs(1000000);
 		EXTI->PR |= 1<<4;
-		dc_trai[1] = 50;
+		dc_trai[1] = 30;
 	}
 	
 }

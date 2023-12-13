@@ -3,9 +3,9 @@
 
 uint8_t tay_ps; 
 
-uint8_t dc_trai[3] = {0x01, 70, 0xFF};  
+uint8_t dc_trai[3] = {0x01, 50, 0xFF};  
 
-uint8_t dc_phai[3] = {0x01, 70, 0xFF}; 
+uint8_t dc_phai[3] = {0x01, 30, 0xFF}; 
 
 int t = 0; 
 
