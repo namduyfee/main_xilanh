@@ -76,6 +76,10 @@ void configGPIOB(void) {
 	GPIOB->CRH |= (0x3<<24);
 	GPIOB->CRH |= (0x3<<28);
 	
+	GPIOB->ODR &= (~(1<<12)); 
+	GPIOB->ODR &= (~(1<<13));
+	GPIOB->ODR &= (~(1<<14));
+	GPIOB->ODR &= (~(1<<15));
 }
 
 void configGPIOC(void) {

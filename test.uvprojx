@@ -438,6 +438,11 @@
               <FileType>1</FileType>
               <FilePath>.\src\dma.c</FilePath>
             </File>
+            <File>
+              <FileName>function.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\function.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -492,6 +497,11 @@
               <FileName>dma.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\inc\dma.h</FilePath>
+            </File>
+            <File>
+              <FileName>function.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\inc\function.h</FilePath>
             </File>
           </Files>
         </Group>

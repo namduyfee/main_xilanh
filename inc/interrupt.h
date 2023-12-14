@@ -9,10 +9,22 @@
 
 #include "timer.h" 
 #include "servo.h"
+#include "function.h" 
+
+
+typedef struct {
+	uint8_t diachi_trai; 
+	uint8_t tocdo_trai; 
+	uint8_t end_trai; 
+	uint8_t diachi_phai; 
+	uint8_t tocdo_phai; 
+	uint8_t end_phai;
+	
+} dc; 
 
 extern int t; 
-extern uint8_t dc_trai[3]; 
-extern uint8_t dc_phai[3]; 
+extern int check; 
+extern dc canh_tay; 
 
  void EXTI3_IRQHandler (void); 
  

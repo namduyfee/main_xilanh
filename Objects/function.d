@@ -1,4 +1,4 @@
-./objects/config.o: src\config.c inc\config.h \
+./objects/function.o: src\function.c inc\function.h inc\config.h \
   D:\keilC\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   RTE\_Target_1\RTE_Components.h \
   D:\keilC\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h \
@@ -10,4 +10,4 @@
   RTE\Device\STM32F103C8\stm32f10x_conf.h \
   D:\keilC\Keil\STM32F1xx_DFP\2.4.1\Device\StdPeriph_Driver\inc\misc.h \
   inc\gpio.h inc\timer.h inc\servo.h inc\nvic.h inc\interrupt.h \
-  inc\function.h inc\config.h inc\exti.h inc\dma.h inc\uart.h inc\i2c.h
+  inc\function.h inc\exti.h inc\dma.h inc\uart.h inc\i2c.h

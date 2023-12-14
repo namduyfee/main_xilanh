@@ -15,10 +15,10 @@ void configNVIC(void) {
 	NVIC_SetPriority(EXTI4_IRQn, 1); 
 
 	NVIC_EnableIRQ(EXTI4_IRQn); 
-//	
-// NVIC_SetPriority(EXTI9_5_IRQn, 1); 
 
-//	NVIC_EnableIRQ(EXTI9_5_IRQn); 
+ NVIC_SetPriority(EXTI9_5_IRQn, 1); 
+
+	NVIC_EnableIRQ(EXTI9_5_IRQn); 
 //	
 //	NVIC_SetPriority(EXTI15_10_IRQn, 1); 
 

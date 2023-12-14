@@ -16,43 +16,99 @@ void EXTI3_IRQHandler (void) {
 
 void EXTI4_IRQHandler (void) {
 	// A8, A11, A12, B8
-	// 3 : A11, 1 : A12 ; 2 : A11 ; 4 : B8 
+	// 1 : A12 -- 2 : A11 -- 3 : A8 -- 4 : B8 
 	
 	if(EXTI->PR & 1<<4) {
-		delayUs(50000); 
-		dc_trai[0] = 0x01; 
-		dc_trai[1] = 0;
-		dc_trai[2] = 0xFF;   
-		if( t == 0) 
-			GPIOA->ODR |= 1<<11;  
-		if(t == 1) 
-			GPIOA->ODR |= 1<<12; 
-		if(t == 2) 
-			GPIOA->ODR |= 1<<8; 
-		if(t == 3) 
-			GPIOB->ODR |= 1<<8;
-		t++; 
-
+		int tem = 0; 
+		if(check == 0&& tem == 0) {
+			delayUs(50000); 
+//			canh_tay.diachi_trai = 0x01; 
+			canh_tay.tocdo_trai = 0;
+//			canh_tay.end_trai = 0xFF;   
+			while((EXTI->PR & 1<<5)== 0);
+			canh_tay.tocdo_phai = 0;
+			if( t == 0) { 
+				control_xilanh(1, 1); 
+				control_xilanh(5, 1); 
+			}
+			if(t == 1)  {
+				control_xilanh(2, 1); 
+				control_xilanh(6, 1);
+			}
+			if(t == 2) {
+				control_xilanh(3, 1); 
+				control_xilanh(7, 1);
+			}
+			if(t == 3) {
+				control_xilanh(4, 1); 
+				control_xilanh(8, 1);
+			}
+			t++; 
 		delayUs(1000000);
-		EXTI->PR |= 1<<4;
-		if(t <= 3)  {
-			dc_trai[0] = 0x01; 
-			dc_trai[1] = 6;
-			dc_trai[2] = 0xFF; 
+		
+		if(t <= 3)  { 
+			canh_tay.tocdo_trai = 7;
+			canh_tay.tocdo_phai = 7;
 		}
 		delayUs(50000);
-		
+		check = 1;
+		tem = 1; 
 	}
+	if(check == 1 && tem == 0) {
+		delayUs(20000);
+		check = 0; 
+	}
+	EXTI->PR |= 1<<4;
+
+}
 	
 }
 
 void EXTI9_5_IRQHandler (void) {
 	
 	if(EXTI->PR & 1<<5) {
+		int tem = 0; 
+		if(check == 0 && tem == 0) {
+			delayUs(50000); 
+//			canh_tay.diachi_trai = 0x01; 
+			canh_tay.tocdo_phai = 0;
+//			canh_tay.end_trai = 0xFF;   
+			while((EXTI->PR & 1<<4)== 0);
+			canh_tay.tocdo_trai = 0;
+			if( t == 0) { 
+				control_xilanh(1, 1); 
+				control_xilanh(5, 1); 
+			}
+			if(t == 1)  {
+				control_xilanh(2, 1); 
+				control_xilanh(6, 1);
+			}
+			if(t == 2) {
+				control_xilanh(3, 1); 
+				control_xilanh(7, 1);
+			}
+			if(t == 3) {
+				control_xilanh(4, 1); 
+				control_xilanh(8, 1);
+			}
+			t++; 
+		delayUs(1000000);
 		
-			
-		EXTI->PR |= 1<<5;
+		if(t <= 3)  { 
+			canh_tay.tocdo_trai = 7;
+			canh_tay.tocdo_phai = 7;
+		}
+		delayUs(50000);
+		check = 1;
+		tem = 1; 
 	}
+	if(check == 1 && tem == 0) {
+		delayUs(20000);
+		check = 0; 
+	}
+	EXTI->PR |= 1<<5;
+
+}
 }
 
 
