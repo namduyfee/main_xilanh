@@ -57,5 +57,18 @@ void control_xilanh(uint8_t xilanh_number, uint8_t trang_thai) {
 	
 }
 
+//void khoi_dong_mem (uint8_t dc1, uint8_t dc2, uint8_t toc_do) {
+//	
+//	uint8_t i; 
+//	for(i = 0; i < toc_do; i++) {
+//		if(dc1 == 1 || dc2 == 1)  
+//			canh_tay.tocdo_trai = i; 
+//		if(dc1 == 2 || dc2 == 2) 
+//			canh_tay.tocdo_phai = i;
+//		if(dc1 == 3 || dc2 == 3) 
+//			canh_tay.tocdo_keo = i;
+//		delayUs(60000); 
+//	}
 
+//}
 

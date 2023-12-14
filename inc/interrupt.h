@@ -19,12 +19,16 @@ typedef struct {
 	uint8_t diachi_phai; 
 	uint8_t tocdo_phai; 
 	uint8_t end_phai;
-	
+	uint8_t diachi_keo; 
+	uint8_t tocdo_keo; 
+	uint8_t end_keo;
 } dc; 
 
 extern int t; 
 extern int check; 
 extern dc canh_tay; 
+
+//extern uint8_t dc_keo[3]; 
 
  void EXTI3_IRQHandler (void); 
  
