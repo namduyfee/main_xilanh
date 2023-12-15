@@ -8,11 +8,11 @@ void config(void) {
 	configGPIOB(); 
 	configGPIOC(); 
 	configAFIO();
-	tam = 1; 
+
 	configEXTI(); 
-	tam = 2; 
+
 	configNVIC(); 
-	tam = 3; 
+ 
 	configTIM4();
 	
 	configDMA1(); 

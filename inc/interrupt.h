@@ -27,7 +27,7 @@ typedef struct {
 extern int t; 
 extern int check; 
 extern dc canh_tay; 
-
+extern uint8_t trang_thai; 
 
 //extern uint8_t dc_keo[3]; 
 

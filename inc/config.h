@@ -18,7 +18,7 @@
 
 
 void config(void); 
-extern int tam; 
+
 
 #endif
 
