@@ -7,12 +7,15 @@
 void EXTI3_IRQHandler (void) {
 	
 	if(EXTI->PR & 1<<3) {
-			 
+		delayUs(50000); 
+		canh_tay.tocdo_keo = 1; 
+		
+		canh_tay.tocdo_trai = 40; 
+		canh_tay.diachi_phai = 40; 
 		EXTI->PR |= 1<<3;
 	}
 	
 }
-
 
 void EXTI4_IRQHandler (void) {
 	// A8, A11, A12, B8
@@ -116,7 +119,8 @@ void EXTI9_5_IRQHandler (void) {
 void EXTI15_10_IRQHandler (void) {
 	
 	if(EXTI->PR & 1<<15) {
-
+		
+		
 		EXTI->PR |= 1<<15;
 	}
 	

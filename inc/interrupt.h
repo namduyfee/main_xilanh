@@ -28,6 +28,7 @@ extern int t;
 extern int check; 
 extern dc canh_tay; 
 
+
 //extern uint8_t dc_keo[3]; 
 
  void EXTI3_IRQHandler (void); 

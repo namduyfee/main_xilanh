@@ -10,7 +10,7 @@ void configEXTI(void) {
 	EXTI->RTSR &= 0; 
 	
 	EXTI->IMR |= 1<<3; 
-	EXTI->RTSR |= 1<<3; 
+	EXTI->FTSR |= 1<<3; 
 	
 	
 	EXTI->IMR |= 1<<4; 
@@ -20,9 +20,8 @@ void configEXTI(void) {
 	EXTI->RTSR |= 1<<5;
 	
 	EXTI->IMR |= 1<<15; 
-	EXTI->RTSR |= 1<<15;
-	
-	\
+	EXTI->FTSR |= 1<<15;
+
 }
 
 

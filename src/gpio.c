@@ -98,6 +98,8 @@ void configAFIO(void) {
 	RCC->APB2ENR |= 1; 
 	AFIO->EXTICR[0] |= 0x1000; 
 	AFIO->EXTICR[1] |= 0x11; 
-//	AFIO->EXTICR[3] &= 0x0FFF; 
+	AFIO->EXTICR[3] &= 0x0FFF; 
+	
+	AFIO->MAPR |= 	1<<25; 
 	
 }

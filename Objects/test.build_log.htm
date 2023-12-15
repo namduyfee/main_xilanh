@@ -37,7 +37,7 @@ main.c(2): warning: In file included from...
 ./inc/i2c.h(29): warning: no newline at end of file [-Wnewline-eof]
 #endif
       ^
-main.c(31): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(33): warning: 'return' will never be executed [-Wunreachable-code-return]
         return 0; 
                ^
 main.c(5): warning: no previous extern declaration for non-static variable 'tay_ps' [-Wmissing-variable-declarations]
@@ -48,25 +48,9 @@ uint8_t tay_ps;
 ^
 4 warnings generated.
 compiling main.c...
-src/interrupt.c(2): warning: In file included from...
-./inc/interrupt.h(12): warning: In file included from...
-./inc/function.h(7): warning: In file included from...
-./inc/config.h(14): warning: In file included from...
-./inc/dma.h(27): warning: no newline at end of file [-Wnewline-eof]
-#endif  
-        ^
-src/interrupt.c(2): warning: In file included from...
-./inc/interrupt.h(12): warning: In file included from...
-./inc/function.h(7): warning: In file included from...
-./inc/config.h(16): warning: In file included from...
-./inc/i2c.h(29): warning: no newline at end of file [-Wnewline-eof]
-#endif
-      ^
-2 warnings generated.
-compiling interrupt.c...
 linking...
-Program Size: Code=2508 RO-data=268 RW-data=12 ZI-data=1640  
-".\Objects\test.axf" - 0 Error(s), 6 Warning(s).
+Program Size: Code=2628 RO-data=268 RW-data=12 ZI-data=1648  
+".\Objects\test.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -96,17 +80,17 @@ Package Vendor: Keil
 
    * Component: Keil::Device:Startup:1.0.0
       Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\system_stm32f10x.c
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
       Source file:   Device\Source\ARM\startup_stm32f10x_md.s
-      Source file:   Device\Source\system_stm32f10x.c
 
    * Component: Keil::Device:StdPeriph Drivers:Framework:3.6.0
-      Include file:  Device\StdPeriph_Driver\inc\misc.h
-      Source file:   Device\StdPeriph_Driver\src\misc.c
+      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
       Include file:  Device\StdPeriph_Driver\templates\stm32f10x_it.h
       Source file:   Device\StdPeriph_Driver\templates\stm32f10x_it.c
-      Source file:   Device\StdPeriph_Driver\templates\stm32f10x_conf.h
-Build Time Elapsed:  00:00:00
+      Source file:   Device\StdPeriph_Driver\src\misc.c
+      Include file:  Device\StdPeriph_Driver\inc\misc.h
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
