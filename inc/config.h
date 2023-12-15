@@ -14,6 +14,7 @@
 #include "dma.h"
 #include "uart.h"
 #include "i2c.h"
+#include "function.h" 
 
 
 void config(void); 

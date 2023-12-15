@@ -57,18 +57,58 @@ void control_xilanh(uint8_t xilanh_number, uint8_t trang_thai) {
 	
 }
 
-//void khoi_dong_mem (uint8_t dc1, uint8_t dc2, uint8_t toc_do) {
-//	
-//	uint8_t i; 
-//	for(i = 0; i < toc_do; i++) {
-//		if(dc1 == 1 || dc2 == 1)  
-//			canh_tay.tocdo_trai = i; 
-//		if(dc1 == 2 || dc2 == 2) 
-//			canh_tay.tocdo_phai = i;
-//		if(dc1 == 3 || dc2 == 3) 
-//			canh_tay.tocdo_keo = i;
-//		delayUs(60000); 
-//	}
 
-//}
+void nang_canh_tay(uint8_t toc_do) {
+	canh_tay.diachi_keo = 0x83; 
+	canh_tay.tocdo_keo = toc_do; 
+}
+
+
+void ha_canh_tay(uint8_t toc_do) {
+	canh_tay.diachi_keo = 0x03; 
+	canh_tay.tocdo_keo = toc_do; 
+}
+
+
+void xoay_phai(uint8_t tay_number, uint8_t toc_do) {
+	if(tay_number ==1) {
+		canh_tay.diachi_trai = 0x81; 
+		canh_tay.tocdo_trai = toc_do;
+	}
+	
+	if(tay_number ==2) {
+		canh_tay.diachi_phai = 0x82; 
+		canh_tay.tocdo_phai = toc_do;
+	}
+	
+}
+
+void xoay_trai(uint8_t tay_number, uint8_t toc_do) {
+	if(tay_number ==1) {
+		canh_tay.diachi_trai = 0x01; 
+		canh_tay.tocdo_trai = toc_do;
+	}
+	
+	if(tay_number ==2) {
+		canh_tay.diachi_phai = 0x02; 
+		canh_tay.tocdo_phai = toc_do;
+	}
+	
+}
+
+void khoa_dc_tay(uint8_t dc_number) {
+	
+	if(dc_number == 1) 
+		canh_tay.tocdo_trai = 1; 
+	if(dc_number ==2)
+		canh_tay.tocdo_phai = 1; 
+	if(dc_number == 3) 
+		canh_tay.tocdo_keo = 1; 
+	
+}
+
+
+
+
+
 

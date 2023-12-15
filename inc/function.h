@@ -7,8 +7,12 @@
 #include "config.h"
 
 void control_xilanh(uint8_t xilanh_number, uint8_t trang_thai); 
-//void khoi_dong_mem (uint8_t dc1, uint8_t dc2, uint8_t toc_do); 
+void nang_canh_tay(uint8_t toc_do); 
+void ha_canh_tay(uint8_t toc_do); 
+void xoay_phai(uint8_t tay_number, uint8_t toc_do); 
+void xoay_trai(uint8_t tay_number, uint8_t toc_do); 
 
+void khoa_dc_tay(uint8_t dc_number); 
 
 #endif
 
