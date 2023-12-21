@@ -19,13 +19,13 @@ void configDMA1(void) {
 	
 	// enable interrupt last hex 0->8 
 	// channel 5 : rx_usart 1
-	DMA1_Channel5->CCR = 0x10A0; // high priority 
+//	DMA1_Channel5->CCR = 0x10A8; // high priority 
 	// channel 6 : rx_usart 2
 	DMA1_Channel6->CCR = 0x10A0; // medium
 	// channel 3 : rx_usart3
 	DMA1_Channel3->CCR = 0x10A0; // medium
 	//	channel 4 : U1_TX
-	DMA1_Channel4->CCR = 0x10B0; // medium
+//	DMA1_Channel4->CCR = 0x10B0; // medium
 	//	channel 7 : U2_Tx	
 	DMA1_Channel7->CCR = 0x10B0; // medium
 	//	channel 2 : U3_Tx

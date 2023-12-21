@@ -11,11 +11,10 @@ void configUART1(void) {
 	// enable uart,  8 bit data, enable DMA1_channel 5 
 	// enable trans , recive
 	
-	USART1->CR3 |= 1<<6; 
 	
-	USART1->CR3 |= 1<<7;						// enable DMA trans
+	// uart mode trans , recevi interrupt 
 	
-	USART1->CR1 = 0x200C; 
+	USART1->CR1 = 0x202C; 
 	
 //	USART1->BRR = 0x1D4C; 				// 9600
 	USART1->BRR = 0x271; 				// 115200
