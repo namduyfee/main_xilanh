@@ -22,12 +22,14 @@ void config(void) {
 	configUART3(); 
 	
 //	configI2c(); 
-	
-	
 //	configTIM3();
 //	configTIM1(); 
-	
-	 
-	
+
+//	initDMA1Channel7(&(canh_tay.diachi_trai), &(USART2->DR), 9); 
+//	if((GPIOA->IDR & 1<<15) == 0) {
+//		nang_canh_tay(40); 
+//		delayUs(1500000); 
+//		ha_canh_tay(50); 
+//	}
 	
 }

@@ -8,7 +8,7 @@ void configNVIC(void) {
 	
 	NVIC_SetPriorityGrouping(NVIC_PriorityGroup_4); 
 	
-	NVIC_SetPriority(EXTI3_IRQn, 3); 
+	NVIC_SetPriority(EXTI3_IRQn, 2); 
 
 	NVIC_EnableIRQ(EXTI3_IRQn); 
 
@@ -20,7 +20,7 @@ void configNVIC(void) {
 
 	NVIC_EnableIRQ(EXTI9_5_IRQn); 
 //	
-	NVIC_SetPriority(EXTI15_10_IRQn, 2); 
+	NVIC_SetPriority(EXTI15_10_IRQn, 3); 
 
 	NVIC_EnableIRQ(EXTI15_10_IRQn); 
 	

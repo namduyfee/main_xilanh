@@ -1,53 +1,37 @@
 
 #include "interrupt.h"
 
-#define tha_lua 10
-#define gap_lua_len 3
-#define di_tha_lua 2
+
+// start = 0 : di va home , = 1 : dua vao luoc 
+// trang_thai = 0 di xuong : -- , trang_thai = 1 di len : ++
+
+#define tha_lua 16
+#define gap_lua_len 8
+#define di_tha_lua 7
+#define tranh_cham_lua 34 
 
 void EXTI15_10_IRQHandler (void) {
 	
 	if(EXTI->PR & 1<<15) {
 		
 		khoa_dc_tay(3); 
-		
+
+		vi_tri_nang_ha = 0; 
 		if(start == 0) { 
 			start = 1; 
 			USART1->CR1 |= 1<<5;
 		}
 		
-		if(tem == 2) {
-			kep(2); 
-			start = 1; 
-			tem = 3; 
-			delayUs(1000000); 
-			nang_canh_tay(50); 
-			stop_nang_ha = tha_lua; 
-			trang_thai = 1; 
-		}
 		if(tem == 4) {
-			control_xilanh(3, 1); 
-			control_xilanh(5, 1);
+			kep(1); 
 			delayUs(500000); 
-			start = 1; 
-			stop_nang_ha = gap_lua_len; 
-			nang_canh_tay(60);
-			delayUs(500000); 
-			xoay_trai(1, 50); 
-			xoay_phai(2, 50); 
-			 
-		}
-		if(tem == 5) {
-			control_xilanh(2, 1); 
-			control_xilanh(6, 1);
-			delayUs(500000);
-			start = 1; 
 			stop_nang_ha = di_tha_lua; 
-			nang_canh_tay(40); 
-			delayUs(500000); 
-			USART1->DR = 'd'; 
+			nang_canh_tay(70); 
+			trang_thai = 1; 
+			delayUs(500000);
+			USART1->DR = 'c'; 
 		}
-		vi_tri_nang_ha = 0; 
+		
 		EXTI->PR = 1<<15;
 	}
 	
@@ -64,7 +48,32 @@ void EXTI4_IRQHandler (void) {
 			khoa_dc_tay(1); 
 			check = 1; 
 			delayUs(50000);
-
+			
+			if(tem == 1) { 
+				control_xilanh(3, 0); 
+				control_xilanh(5, 0); 
+				delayUs(500000); 
+				xoay_trai(1, 50); 
+				xoay_phai(2, 60);
+				tem = 2; 
+				EXTI->PR = 1<<4;
+				return; 
+			}
+			
+			if(tem == 2) {
+				control_xilanh(1, 0); 
+				control_xilanh(7, 0); 
+				delayUs(500000); 
+				xoay_phai(1, 50);
+				xoay_trai(2, 60); 
+				start = 0;  
+				ha_canh_tay(70); 
+				trang_thai = 0; 
+				tem = 3;
+				USART1->DR = 'a'; 
+				EXTI->PR = 1<<4;
+				return; 
+			}
 			EXTI->PR = 1<<4;
 			return; 
 		}
@@ -89,9 +98,34 @@ void EXTI9_5_IRQHandler (void) {
 				khoa_dc_tay(2);
 				check = 1;
 				delayUs(50000); 
-		
+				
+				if(tem == 1) { 
+					control_xilanh(3, 0); 
+					control_xilanh(5, 0); 
+					delayUs(500000); 
+					xoay_trai(1, 50); 
+					xoay_phai(2, 60);
+					tem = 2; 
+					EXTI->PR = 1<<5;
+					return; 
+			}
+				
+			if(tem == 2) {
+				control_xilanh(1, 0); 
+				control_xilanh(7, 0); 
+				delayUs(500000); 
+				xoay_phai(1, 50);
+				xoay_trai(2, 60); 
+				start = 0;  
+				ha_canh_tay(70); 
+				trang_thai = 0; 
+				tem = 3;
+				USART1->DR = 'a'; 
 				EXTI->PR = 1<<5;
 				return; 
+			}
+			EXTI->PR = 1<<5;
+			return; 
 		}
 			
 			if(check == 1) { 
@@ -113,21 +147,6 @@ void EXTI3_IRQHandler (void) {
 		
 			if(stop_nang_ha == vi_tri_nang_ha) {
 				khoa_dc_tay(3);
-				if(tem == 1) { 
-					USART1->DR = 'a';
-				}
-				if(tem == 3) {
-					control_xilanh(2, 0); 
-					control_xilanh(3, 0);
-					control_xilanh(5, 0); 
-					control_xilanh(6, 0);
-					delayUs(1000000); 
-					xoay_trai(1, 60); 
-					xoay_phai(2, 60); 
-					USART1->DR = 'b'; 
-				}
-				if(tem == 4) 
-					USART1->DR = 'c'; 
 				
 			}
  
@@ -146,31 +165,35 @@ void USART1_IRQHandler (void) {
 		tay_ps = USART1->DR; 
 		if(tay_ps == 'a') {
 			kep(1); 
-			delayUs(1000000);
-			trang_thai = 1; 
-			stop_nang_ha = gap_lua_len;
-			nang_canh_tay(60);
+			delayUs(1000000); 
+			stop_nang_ha = tha_lua;
+			trang_thai = 1;
+			nang_canh_tay(70);
 			delayUs(500000);
-			xoay_trai(1, 60); 
-			xoay_phai(2, 60);
+			USART1->DR = 'a'; 
+			xoay_trai(1, 20); 
+			xoay_phai(2, 30);
 			tem = 1; 
 		}
 		if(tay_ps == 'b') {
-			ha_canh_tay(60);
-			trang_thai = 0; 
-			tem = 2; 
-			start = 0; 
+			kep(2); 
+			delayUs(500000); 
+			trang_thai = 1; 
+			stop_nang_ha = tranh_cham_lua; 
+			nang_canh_tay(70); 
+			USART1->DR = 'b'; 
 		}
 		
 		if(tay_ps == 'c') {
 			start = 0; 
-			ha_canh_tay(60); 
+			ha_canh_tay(70); 
+			trang_thai = 0; 
+			xoay_phai(1, 60);
+			xoay_trai(2, 70); 
 			tem = 4; 
 		}
 		if(tay_ps == 'd') {
-			ha_canh_tay(60); 
-			start = 0; 
-			tem = 5; 
+
 		}
 		USART1->CR1 |= 1<<7; 
 	}
